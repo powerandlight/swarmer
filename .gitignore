@@ -1,0 +1,5 @@
+data
+redis-data
+node_modules
+.env
+.idea
