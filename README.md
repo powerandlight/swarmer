@@ -31,13 +31,9 @@ To stop these running instances run:
 
 ## Install
 
-To install the necessary packages using yarn or npm (we wrote this using yarn)
+To install the necessary packages using yarn (we wrote this tutorial using yarn for so its best to use that)
 
 ``yarn install``
-
-or
-
-``npm install``
 
 ## Running
 

@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const app = express()
 const config = require('config')
 
-
 const redisDebug = require('debug')('server:redis')
 // Use our docker compose redis cache. Remove the config settings to use local redis
 const cache = require('express-redis-cache')({
@@ -17,7 +16,7 @@ cache.on('error', e => {
   redisDebug(`Cache error ${e.message}`)
 })
 cache.on('connected', e => {
-  redisDebug(`Redis cache connected to ${config.get('db.redis.host')}:${config.get('db.redis.port')}`)
+  redisDebug(`Redis cache connected to ${config.get('db.redis.host')}:${config.get('db.redis.port')} ${e}`)
 })
 
 const mongooseDebug = require('debug')('server:mongoose')
@@ -28,7 +27,7 @@ mongoose.connection.on('error', (e) => mongooseDebug(`mongoose connection error:
 mongoose.connection.once('open', () => mongooseDebug(`mongoose connected to ${config.get('db.mongodb.uri')}`))
 
 if (config.get('env') === 'development') {
-  app.use(errorhandler())
+  app.use(errorhandler({debug: true}))
 }
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
@@ -42,9 +41,14 @@ app.use('/cached', cache.route(), (req,res) => {
   res.send(new Date())
 })
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hi!')
 })
+
+app.use((req, res) => {
+  res.status(404).send(`Can't find that page, try something else!`)
+})
+
 const server = app.listen(config.get('port'), () => {
   const host = server.address().address
   const port = server.address().port

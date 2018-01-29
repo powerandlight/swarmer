@@ -1,0 +1,9 @@
+env: "NODE_ENV"
+port: "PORT"
+db:
+  mongodb:
+    uri: "MONGO_DB_URI"
+  redis:
+    host: "REDIS_DB_HOST"
+    port: "REDIS_DB_PORT"
+    password: "REDIS_DB_PASSWORD"
