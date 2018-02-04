@@ -1,2 +1,6 @@
 env: "NODE_ENV"
 port: "PORT"
+db:
+  redis:
+    port: "REDIS_PORT"
+    host: "REDIS_HOST"
