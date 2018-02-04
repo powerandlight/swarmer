@@ -1,8 +1,2 @@
 env: "development"
 port: 3000
-db:
-  mongodb:
-    uri: "mongodb://localhost:27021/swarmer"
-  redis:
-    host: "localhost"
-    port: 6380

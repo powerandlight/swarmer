@@ -8,26 +8,17 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "body-parser": "^1.18.2",
     "config": "^1.29.2",
-    "cors": "^2.8.4",
     "debug": "^3.1.0",
     "express": "^4.16.2",
-    "express-redis-cache": "^1.0.0",
-    "http-errors": "^1.6.2",
-    "http-errors-middleware": "^0.2.2",
-    "mongoose": "^5.0.2",
-    "mongoose-sanitize-json": "^1.0.1",
-    "mongoose-sanitizer": "^1.0.0",
-    "require-directory": "^2.1.1",
-    "response-time": "^2.3.2",
-    "standard": "^10.0.3"
+    "response-time": "^2.3.2"
   },
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
   "devDependencies": {
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.14.11",
+    "standard": "^10.0.3"
   }
 }
