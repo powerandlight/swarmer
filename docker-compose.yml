@@ -1,8 +1,7 @@
 version: '3'
 services:
   swarmer:
-    container_name: swarmer
-    restart: always
+    image: powerandlight/swarmer:firstrun
     build: .
     ports:
       - "3000:3000"
