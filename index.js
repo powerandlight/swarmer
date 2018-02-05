@@ -3,6 +3,7 @@ const app = express()
 const config = require('config')
 const debug = require('debug')('swarmer')
 const dateformat = require('date-format')
+const os = require('os')
 
 app.get('/', (req, res) => {
   res.send('Hi!')
@@ -20,8 +21,7 @@ cache.on('connected', e => {
 })
 
 app.use('/cached', cache.route(), (req, res) => {
-  debug('Cache Miss')
-  res.send(dateformat('MM/dd/yy at hh:mm:ss'))
+  res.send(`<h1>Hi there!</h1>Date: ${dateformat('MM/dd/yy at hh:mm:ss')} <br />Hostname: ${os.hostname()}`)
 })
 
 const server = app.listen(config.get('port'), () => {
