@@ -5,7 +5,7 @@
     "Key": "dockercfg.json"
   },
   "Image": {
-    "Name": "powerandlight/swarmer",
+    "Name": "powerandlight/swarmer:base",
     "Update": "true"
   },
   "Ports": [
