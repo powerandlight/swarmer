@@ -4,7 +4,7 @@ const config = require('config')
 const debug = require('debug')('swarmer')
 
 app.get('/', (req, res) => {
-  res.send('Hi!')
+  res.send('Hi - did this autodeploy?!')
 })
 app.get('/healthcheck', (req, res) => {
   res.send(200)
